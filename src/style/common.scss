@@ -1,0 +1,25 @@
+// @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,700&family=Lora:ital,wght@0,700;1,400&family=Merriweather:ital,wght@1,400;1,700&display=swap');
+
+// font-family: 'Josefin Sans', sans-serif;
+// font-family: 'Lora', serif;
+// font-family: 'Merriweather', serif;
+
+.text-black {
+  color: black;
+}
+
+.text-white {
+  color: white;
+  a {
+    color: rgb(254, 249, 214);
+  }
+}
+
+.height-5 {
+  height: 5rem;
+}
+
+.line {
+  height: 50px;
+  border-bottom: 1px solid #696969;
+}

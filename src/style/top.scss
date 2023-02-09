@@ -1,0 +1,125 @@
+#app {
+  width: 100%;
+  // background-image: url('../assets/images/img-event01.jpg');
+  // background-repeat: no-repeat;
+  // background-size: 100% auto;
+  
+}
+
+header {
+  padding: 0;
+  // justify-content: space-between;
+  &.position-relative {
+    height: 100vh;
+    background: 
+    // linear-gradient(180deg, rgba(2,0,36,0.6) 0%, rgba(0,0,0,0.6279761904761905) 17%, rgba(251,251,251,0.5) 100%),
+    url('../assets/images/img-event01.jpg') ;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .wrapper-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    .subtitle {
+      font-family: 'Lora', serif;
+      font-size: 3rem;
+      font-weight: 700;
+    }
+    p {
+      font-family: 'Lora', serif;
+    }
+  }
+
+}
+
+header .wrapper nav {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  color: white;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(0,0,0,0.6);
+  a {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2rem;
+    padding: 0.5rem 2rem;
+    &:nth-child(4) {
+      padding: 0 !important;
+      background-color: transparent !important; 
+    }
+  }
+  a.router-link-exact-active {
+    color: white;
+    background-color: black;
+  }
+}
+
+
+main {
+  background-color: #282828 ;
+}
+
+.highlight-section {
+  width: 1024px;
+  text-align: center;
+  margin: 5rem auto 3rem;
+  overflow: hidden;
+  .highlight-title {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff6d8;
+    border-bottom: 1px solid white;
+    margin-bottom: 2rem;
+  }
+  .highlight-sub-title {
+    font-family: 'Merriweather', serif;
+    letter-spacing: 0.1rem;
+    font-size: 2rem;
+    color: white;
+    line-height: 1;
+    margin-bottom: 1em;
+  }
+  .highlight-block {
+    .VueCarousel {
+      .VueCarousel-wrapper {
+        .VueCarousel-inner {
+          // gap: 5vw;
+        }
+      }
+    }
+  }  
+
+}
+
+
+// carosal
+
+.VueCarousel-slide {
+  position: relative;
+  color: #fff;
+  font-family: Arial;
+  font-size: 24px;
+  text-align: center;
+  min-height: 300px;
+}
+
+.label {
+  width: 90%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
