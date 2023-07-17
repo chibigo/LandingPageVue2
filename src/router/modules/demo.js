@@ -5,8 +5,8 @@ export default [
     component: () => import('@/views/HomeView.vue'),
   },
   {
-    path: '/about',
-    name: 'about',
+    path: '/catalog',
+    name: 'catalog',
     component: () => import('@/views/AboutView.vue'),
   },
   {
@@ -14,4 +14,20 @@ export default [
     name: 'about',
     component: () => import('@/views/LandingPage.vue'),
   },
+  {
+    path: '/post',
+    name: 'post',
+    component: () => import('@/views/AddPosts.vue'),
+  },
+  {
+    path: '/posts',
+    name: 'postlist',
+    component: () => import('@/views/ListPost.vue'),
+  },
+  {
+    path: '/posts/:id',
+    name: 'postdetail',
+    component: () => import('@/views/DetailPost.vue'),
+  },
+  { path: '*', redirect: '/' },
 ];

@@ -10,13 +10,14 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "eslint.validate": ["javascript", "javascriptvue", "vue"],
   "stylelint.validate": ["css", "less", "postcss", "scss", "vue", "sass", "html"],
-  "cSpell.words": [
-    "stylelint",
-    "pinia",
-    "commitlint",
-    "unplugin"
-  ],
+  "cSpell.words": ["stylelint", "pinia", "commitlint", "unplugin"],
   "[vue]": {
     "editor.defaultFormatter": "octref.vetur"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
   }
 }

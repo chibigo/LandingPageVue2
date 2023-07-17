@@ -1,49 +1,84 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue';
-</script>
-
 <template>
   <div id="app">
-    <header class="position-relative">
-      <div class="wrapper">
-        <!-- <HelloWorld msg="You did it!" /> -->
-        <nav class="text-white">
-          <router-link to="/">HOME</router-link>
-          <router-link to="/about">ABOUT</router-link>
-          <router-link to="/services">SERVICES</router-link>
-          <router-link to="/">
-            <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="60" height="60" />
-            <!-- <span>BUILD</span> -->
-          </router-link>
-          <router-link to="/blog">BLOG</router-link>
-          <router-link to="/event">EVENTS</router-link>
-          <router-link to="/contact">CONTACT</router-link>
-        </nav>
-      </div>
-      <div class="wrapper-bg text-white">
-        <h2 class="subtitle">SUPERIOR RESIDENCES</h2>
-        <br />
-        <p>HCM</p>
-      </div>
-    </header>
-
-    <router-view />
+    <CompHeader @scrollToContat="scrollToContat" @changeTypeProduct="changeTypeProduct" />
+    <router-view @handleCatalog="changeTypeProduct" />
+    <CompHotline />
+    <CompFooter ref="bottom" id="contact" />
+    <section class="button-scroll-top" :class="{ show: scrollTop > 50 }" @click="topFunction">&#10095;</section>
   </div>
 </template>
+<script>
+import CompFooter from './components/CompFooter.vue';
+import CompHeader from './components/CompHeader.vue';
+import CompHotline from './components/CompHotline.vue';
+
+export default {
+  components: {
+    CompHeader,
+    CompFooter,
+    CompHotline,
+  },
+  data() {
+    return {
+      scrollTop: 0,
+      index: 1,
+    };
+  },
+  created() {
+    window.addEventListener('scroll', this.handleScroll);
+  },
+  unmounted() {
+    window.removeEventListener('scroll', this.handleScroll);
+  },
+  methods: {
+    handleScroll(event) {
+      this.scrollTop = event.target.scrollingElement.scrollTop;
+    },
+    topFunction() {
+      // document.body.scrollTop = 0; // For Safari
+      // document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+      window.scroll({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      });
+    },
+    scrollToContat(element) {
+      const el = document.querySelector(`#${element}`);
+      if (el) {
+        // Use el.scrollIntoView() to instantly scroll to the element
+        el.scrollIntoView({
+          block: 'center',
+          behavior: 'smooth',
+        });
+      } else {
+        this.$router.push('/');
+        this.scrollToContat();
+      }
+    },
+    changeTypeProduct(type) {
+      this.$router.push({
+        name: 'catalog',
+        query: { type: type, subType: 0 },
+      });
+    },
+  },
+};
+</script>
 
 <style scoped>
 header {
-  line-height: 1.5;
+  position: fixed;
   max-height: 100vh;
+  line-height: 1.5;
+  z-index: 999;
 }
 
 .logo {
   display: block;
-  /* margin: 0 auto 2rem; */
 }
 
 nav {
-  /* margin-top: 2rem; */
   width: 100%;
   font-size: 12px;
   text-align: center;
@@ -60,7 +95,8 @@ nav a.router-link-exact-active:hover {
 nav a {
   display: inline-block;
   padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+
+  /* border-left: 1px solid var(--color-border); */
 }
 
 nav a:nth-child(3) {
@@ -68,25 +104,11 @@ nav a:nth-child(3) {
 }
 
 @media (min-width: 1024px) {
-  header {
-    /* display: flex; */
-    /* place-items: center; */
-    /* padding-right: calc(var(--section-gap) / 2); */
-  }
-
-  .logo {
-    /* margin: 0 2rem 0 0; */
-  }
-
-  header .wrapper {
-    /* display: flex;
-      place-items: flex-start;
-      flex-wrap: wrap; */
-  }
+  /* header { */
+  /* padding-right: calc(var(--section-gap) / 2); */
+  /* } */
 
   nav {
-    /* margin-top: 1rem; */
-    /* margin-left: -1rem; */
     padding: 1rem 0;
     font-size: 1rem;
     text-align: left;

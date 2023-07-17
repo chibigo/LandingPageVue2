@@ -9,7 +9,7 @@ const routes = [...demoRouters];
 
 const router = new VueRouter({
   mode: 'history',
-  base: import.meta.env.BASE_URL,
+  base: import.meta.env.BASE_URL ?? process.env.VITE_BASE_URL,
   routes,
   scrollBehavior() {
     return { x: 0, y: 0 };

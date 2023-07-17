@@ -27,9 +27,14 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@uploadcare/rest-client": "^6.4.0",
+    "@uploadcare/upload-client": "^6.4.0",
     "axios": "^1.2.2",
+    "firebase": "^9.17.2",
+    "uploadcare-widget": "^3.21.0",
     "vue": "^2.7.14",
     "vue-carousel": "^0.18.0",
+    "vue-image-viewer": "^1.1.8",
     "vue-router": "^3.5.4",
     "vuex": "^3.6.2"
   },
